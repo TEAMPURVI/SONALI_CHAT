@@ -2,6 +2,7 @@ from pyrogram import Client, filters
 from pyrogram.types import *
 from pymongo import MongoClient
 from pyrogram.enums import ChatAction
+from flask import Flask
 import requests
 import random
 from random import choice
@@ -31,7 +32,7 @@ STKR = os.environ.get("STKR","CAACAgEAAx0Cd5L74gAClqVmhNlbqSgKMe5TIswcgft9l6uSpg
 
 
 StartTime = time.time()
-Mukesh = Client(
+Sonali = Client(
     "chat-gpt" ,
     api_id = API_ID ,
     api_hash = API_HASH ,
@@ -102,7 +103,7 @@ HELP_BACK = [
            InlineKeyboardButton(text="ʙᴀᴄᴋ ", callback_data="HELP_BACK"),
     ]
 ]
-@Mukesh.on_message(filters.incoming & filters.private, group=-1)
+@Sonali.on_message(filters.incoming & filters.private, group=-1)
 async def must_join_channel(bot: Client, msg: Message):
     if not UPDATE_CHNL:
         return
@@ -131,7 +132,7 @@ async def must_join_channel(bot: Client, msg: Message):
                 pass
     except ChatAdminRequired:
         print(f"Promote me as an admin in the UPDATE CHANNEL  : {UPDATE_CHNL} !")
-@Mukesh.on_message(filters.command(["start",f"start@{BOT_USERNAME}"]))
+@Sonali.on_message(filters.command(["start",f"start@{BOT_USERNAME}"]))
 async def restart(client, m: Message):
         accha = await m.reply_text(
                         text = f"{g}")
@@ -151,7 +152,7 @@ async def restart(client, m: Message):
             caption=START,
             reply_markup=InlineKeyboardMarkup(MAIN),
         )
-@Mukesh.on_callback_query()
+@Sonali.on_callback_query()
 async def cb_handler(Client, query: CallbackQuery):
     if query.data == "HELP":
      await query.message.edit_text(
@@ -168,23 +169,23 @@ async def cb_handler(Client, query: CallbackQuery):
     elif query.data == 'hurr':
         await query.answer()
         await query.message.reply(SOURCE)
-@Mukesh.on_message(filters.command(["help", f"help@{BOT_USERNAME}"], prefixes=["/"]))
+@Sonali.on_message(filters.command(["help", f"help@{BOT_USERNAME}"], prefixes=["/"]))
 async def restart(client, message):
     hmm = await message.reply_photo(START_IMG,
                              caption= HELP_READ,
                         reply_markup= InlineKeyboardMarkup(HELP_BACK),
        )
-@Mukesh.on_message(filters.command(['source', 'repo']))
+@Sonali.on_message(filters.command(['source', 'repo']))
 async def source(bot, m):
     await m.reply_photo(START_IMG, caption=SOURCE_TEXT, reply_markup=SOURCE_BUTTONS, reply_to_message_id=m.id)
 #  alive
-@Mukesh.on_message(filters.command(["ping","alive"], prefixes=["/"]))
+@Sonali.on_message(filters.command(["ping","alive"], prefixes=["/"]))
 async def ping(client, message: Message):
         start = datetime.now()
-        t = "__ριиgιиg...__"
+        t = "__ᴘɪɴɢ ʜᴏ ʀʜᴀ 😒...__"
         txxt = await message.reply(t)
         await asyncio.sleep(0.25)
-        await txxt.edit_text("__ριиgιиg.....__")
+        await txxt.edit_text("__ᴘɪɴɢ ʜᴏ ʀʜᴀ 😒.....__")
         await asyncio.sleep(0.35)
         await txxt.delete()
         end = datetime.now()
@@ -195,7 +196,7 @@ async def ping(client, message: Message):
                              reply_markup=InlineKeyboardMarkup(PNG_BTN),
        )
 
-@Mukesh.on_message(
+@Sonali.on_message(
     filters.command(["chatbot off", f"chatbot@{BOT_USERNAME} off"], prefixes=["/"])
     & ~filters.private)
 async def chatbotofd(client, message):
@@ -218,7 +219,7 @@ async def chatbotofd(client, message):
         await message.reply_text(f"ChatBot Already Disabled")
     
 
-@Mukesh.on_message(
+@Sonali.on_message(
     filters.command(["chatbot on", f"chatbot@{BOT_USERNAME} on"] ,prefixes=["/"])
     & ~filters.private)
 async def chatboton(client, message):
@@ -241,14 +242,14 @@ async def chatboton(client, message):
         await message.reply_text(f"ChatBot Enabled!")
     
 
-@Mukesh.on_message(
+@Sonali.on_message(
     filters.command(["chatbot", f"chatbot@{BOT_USERNAME}"], prefixes=["/"])
     & ~filters.private)
 async def chatbot(client, message):
     await message.reply_text(f"**ᴜsᴀɢᴇ:**\n/**chatbot [on/off]**\n**ᴄʜᴀᴛ-ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅ(s) ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘ ᴏɴʟʏ!**")
 
 
-@Mukesh.on_message(
+@Sonali.on_message(
  (
         filters.text
         | filters.sticker
@@ -314,7 +315,7 @@ async def vickai(client: Client, message: Message):
                    chatai.insert_one({"word": message.reply_to_message.text, "text": message.text, "check": "none"})    
                
 
-@Mukesh.on_message(
+@Sonali.on_message(
  (
         filters.sticker
         | filters.text
@@ -381,7 +382,7 @@ async def vickstickerai(client: Client, message: Message):
                
 
 
-@Mukesh.on_message(
+@Sonali.on_message(
     (
         filters.text
         | filters.sticker
@@ -424,7 +425,7 @@ async def vickprivate(client: Client, message: Message):
                await message.reply_text(f"{hey}")
        
 
-@Mukesh.on_message(
+@Sonali.on_message(
  (
         filters.sticker
         | filters.text
@@ -467,4 +468,18 @@ async def vickprivatesticker(client: Client, message: Message):
                await message.reply_sticker(f"{hey}")
 
 print(f"{BOT_NAME} ɪs ᴀʟɪᴠᴇ!")      
-Mukesh.run()
+Sonali.run()
+
+if __name__ == "__main__":
+    # Flask server ko alag thread mein run karna
+    flask_thread = threading.Thread(target=run_flask)
+    flask_thread.daemon = True
+    flask_thread.start()
+
+    # Keep-alive function ko alag thread mein run karna
+    keep_alive_thread = threading.Thread(target=keep_alive)
+    keep_alive_thread.daemon = True
+    keep_alive_thread.start()
+
+    # Bot ko main thread mein run karna
+    run_bot()
