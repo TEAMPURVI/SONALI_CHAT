@@ -22,6 +22,8 @@ dns.resolver.default_resolver = dns.resolver.Resolver(configure=False)
 dns.resolver.default_resolver.nameservers = ['8.8.8.8']  # Google DNS
 MONGO_URL = os.environ.get("MONGO_URL", "mongodb+srv://teamdaxx123:teamdaxx123@cluster0.ysbpgcp.mongodb.net/?retryWrites=true&w=majority")
 client = MongoClient(MONGO_URL, connectTimeoutMS=30000, serverSelectionTimeoutMS=30000)
+db = client["Word"]
+chatai = db["WordDb"]
 BOT_USERNAME = os.environ.get("BOT_USERNAME","PURVI_CHAT_BOT") 
 UPDATE_CHNL = os.environ.get("UPDATE_CHNL","PURVI_SUPPORT")
 OWNER_USERNAME = os.environ.get("OWNER_USERNAME","ll_ALPHA_BABY_lll")
