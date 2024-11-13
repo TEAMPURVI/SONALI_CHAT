@@ -5,6 +5,7 @@ from pyrogram.enums import ChatAction
 from flask import Flask
 import requests
 import random
+import threading
 from random import choice
 import os
 import dns.resolver
