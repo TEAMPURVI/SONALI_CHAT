@@ -11,7 +11,7 @@
     "buildpacks": [{
     "url": "heroku/python"
   }],
-  "repository": "https://github.com/TEAMPURVI/PURVI_CHAT",
+  "repository": "https://github.com/TEAMPURVI/SONALI_CHAT",
   "env": {
     "API_ID": {
       "description": "Get this value from my.telegram.org/apps.",
