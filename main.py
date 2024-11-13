@@ -27,8 +27,8 @@ chatai = db["WordDb"]
 BOT_USERNAME = os.environ.get("BOT_USERNAME","PURVI_CHAT_BOT") 
 UPDATE_CHNL = os.environ.get("UPDATE_CHNL","PURVI_SUPPORT")
 OWNER_USERNAME = os.environ.get("OWNER_USERNAME","ll_ALPHA_BABY_lll")
-SUPPORT_GRP = os.environ.get("SUPPORT_GRP","@PURVI_UPDATES")
-BOT_NAME = os.environ.get("BOT_NAME","●⏤͟͟͞͞𓆩͓͟𝐒͓͟σ፝֠֩͞иΛℓɪ͒˼")
+SUPPORT_GRP = os.environ.get("SUPPORT_GRP","PURVI_UPDATES")
+BOT_NAME = os.environ.get("BOT_NAME"," None)
 START_IMG = os.environ.get("START_IMG","https://graph.org/file/6ccfbda0b79239188c14c.jpg")
 
 STKR = os.environ.get("STKR","CAACAgEAAx0Cd5L74gAClqVmhNlbqSgKMe5TIswcgft9l6uSpgACEQMAAlEpDTnGkK-OP8PZpzUE")
